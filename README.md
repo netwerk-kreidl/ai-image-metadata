@@ -6,8 +6,11 @@ und stellt ein Content Element bereit, das alle Bildnachweise fürs Impressum sa
 ## Installation
 
 ddev composer config repositories.ai-image-metadata git git@github.com:netwerk-kreidl/ai-image-metadata.git
+
 ddev auth ssh
+
 ddev composer require netwerk/ai-image-metadata:^1.0
+
 ddev typo3 extension:setup --extension=ai_image_metadata
 
 ## Configuration
