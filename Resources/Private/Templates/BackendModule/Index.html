@@ -1,0 +1,169 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:layout name="Module" />
+
+<f:section name="Content">
+    <h1>AI Image Metadata</h1>
+
+    <f:if condition="{successMessage}">
+        <div class="alert alert-success">
+            {successMessage}
+        </div>
+    </f:if>
+
+    <f:if condition="{folder}">
+        <f:then>
+            <p>Selected folder: <strong>{folder.identifier}</strong></p>
+
+            <f:if condition="{totalImages}">
+                <div class="mb-3">
+                    <typo3-backend-progress-bar value="{percentComplete}" max="100"
+                        severity="{f:if(condition: '{percentComplete} == 100', then: '0', else: '1')}"
+                        label="{completeImages} of {totalImages} images have a title and an alt text"></typo3-backend-progress-bar>
+                </div>
+            </f:if>
+
+            <f:if condition="{currentImage}">
+                <f:then>
+                    <f:variable name="image" value="{currentImage}" />
+
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <f:if condition="{hasPrevious}">
+                            <f:then>
+                                <a class="btn btn-default"
+                                    href="{be:moduleLink(route: 'media_ai_image_metadata', arguments: {id: id, position: previousPosition, showOnlyIncomplete: '{f:if(condition: showOnlyIncomplete, then: 1, else: 0)}'})}">
+                                    ← Zurück
+                                </a>
+                            </f:then>
+                            <f:else>
+                                <span class="btn btn-default disabled">← Zurück</span>
+                            </f:else>
+                        </f:if>
+                        <strong>Bild {position + 1} von {listCount}</strong>
+                        <f:if condition="{hasNext}">
+                            <f:then>
+                                <a class="btn btn-default"
+                                    href="{be:moduleLink(route: 'media_ai_image_metadata', arguments: {id: id, position: nextPosition, showOnlyIncomplete: '{f:if(condition: showOnlyIncomplete, then: 1, else: 0)}'})}">
+                                    Überspringen →
+                                </a>
+                            </f:then>
+                            <f:else>
+                                <span class="btn btn-default disabled">Überspringen →</span>
+                            </f:else>
+                        </f:if>
+                    </div>
+
+                    <div class="card mb-3 aiim-card">
+                        <div class="card-body">
+                            <div class="row g-4">
+                                <div class="col-lg-5">
+                                    <div class="aiim-card__preview">
+                                        <be:thumbnail image="{image.file}" width="600" height="380" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-7">
+                                    <form method="post" action="{be:moduleLink(route: 'media_ai_image_metadata')}">
+                                        <input type="hidden" name="id" value="{id}" />
+                                        <input type="hidden" name="fileUid" value="{image.file.uid}" />
+                                        <input type="hidden" name="position" value="{position}" />
+                                        <input type="hidden" name="showOnlyIncomplete"
+                                            value="{f:if(condition: showOnlyIncomplete, then: '1', else: '0')}" />
+
+                                        <h2 class="h5 mb-3">{image.file.name}</h2>
+
+                                        <f:if condition="{image.suggestion}">
+                                            <div class="alert alert-info">
+                                                Vorschlag von der KI eingetragen – bitte prüfen und dann speichern.
+                                            </div>
+                                        </f:if>
+
+                                        <div class="form-group mb-3">
+                                            <label class="form-label" for="alternative">Alternative Text</label>
+                                            <textarea id="alternative" name="metadata[alternative]" rows="4"
+                                                class="form-control">{f:if(condition: image.suggestion.alternative, then: image.suggestion.alternative, else: image.metadata.alternative)}</textarea>
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label class="form-label" for="title">Title</label>
+                                            <input type="text" id="title" name="metadata[title]" class="form-control"
+                                                value="{f:if(condition: image.suggestion.title, then: image.suggestion.title, else: image.metadata.title)}" />
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label class="form-label" for="description">Description</label>
+                                            <textarea id="description" name="metadata[description]" rows="3"
+                                                class="form-control">{image.metadata.description}</textarea>
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label class="form-label" for="copyright">Copyright</label>
+                                            <input type="text" id="copyright" name="metadata[copyright]"
+                                                class="form-control"
+                                                value="{f:if(condition: image.metadata.copyright, then: image.metadata.copyright, else: image.suggestion.copyright)}" />
+                                        </div>
+
+                                        <div class="d-flex gap-2">
+                                            <button type="submit" name="action" value="generateMetadata"
+                                                class="btn btn-default">
+                                                Mit KI generieren
+                                            </button>
+                                            <button type="submit" name="action" value="saveMetadata"
+                                                class="btn btn-default">
+                                                Speichern
+                                            </button>
+                                            <button type="submit" name="action" value="saveAndNext"
+                                                class="btn btn-primary">
+                                                Speichern &amp; weiter
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </f:then>
+                <f:else>
+                    <div class="alert alert-info">
+                        <f:if condition="{showOnlyIncomplete}">
+                            <f:then>Alle Bilder in diesem Ordner haben Titel und Alt-Text.</f:then>
+                            <f:else>Keine Bilder in diesem Ordner gefunden.</f:else>
+                        </f:if>
+                    </div>
+                </f:else>
+            </f:if>
+        </f:then>
+        <f:else>
+            <f:if condition="{isFinished}">
+                <f:then>
+                    <f:if condition="{completeImages} == {totalImages}">
+                        <f:then>
+                            <div class="alert alert-success">
+                                Fertig – alle {totalImages} Bilder in diesem Ordner haben Titel und Alt-Text.
+                            </div>
+                        </f:then>
+                        <f:else>
+                            <div class="alert alert-warning">
+                                Alle Bilder durchgesehen. {completeImages} von {totalImages} sind vollständig.
+                                <a
+                                    href="{be:moduleLink(route: 'media_ai_image_metadata', arguments: {id: id, position: 0, showOnlyIncomplete: 1})}">
+                                    Nur die unvollständigen anzeigen
+                                </a>
+                            </div>
+                        </f:else>
+                    </f:if>
+                </f:then>
+                <f:else>
+                    <div class="alert alert-info">
+                        <f:if condition="{showOnlyIncomplete}">
+                            <f:then>Alle Bilder in diesem Ordner haben Titel und Alt-Text.</f:then>
+                            <f:else>Keine Bilder in diesem Ordner gefunden.</f:else>
+                        </f:if>
+                    </div>
+                </f:else>
+            </f:if>
+        </f:else>
+    </f:if>
+</f:section>
+
+</html>

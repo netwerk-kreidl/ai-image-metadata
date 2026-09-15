@@ -1,0 +1,10 @@
+name: netwerk/copyright-list
+typeName: netwerk_copyrightlist
+group: special
+prefixFields: true
+prefixType: full
+basics:
+  - TYPO3/Appearance
+fields:
+  - identifier: header
+    useExistingField: true

@@ -1,0 +1,24 @@
+{
+    "name": "netwerk/ai-image-metadata",
+    "type": "typo3-cms-extension",
+    "description": "AI Image Metadata - Generate alt texts and titles for TYPO3 image metadata",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": "^8.4",
+        "typo3/cms-core": "^14.3",
+        "typo3/cms-backend": "^14.3",
+        "typo3/cms-filelist": "^14.3",
+        "typo3/cms-frontend": "^14.3",
+        "friendsoftypo3/content-blocks": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Netwerk\\AiImageMetadata\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "ai_image_metadata"
+        }
+    }
+}

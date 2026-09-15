@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file datatype="plaintext" original="labels.xlf" source-language="en" product-name="netwerk/copyright-list">
+    <header/>
+    <body>
+      <trans-unit id="title">
+        <source>Bildrechte</source>
+      </trans-unit>
+      <trans-unit id="description">
+        <source>Listet alle Bildnachweise der verwendeten Bilder automatisch auf (für das Impressum).</source>
+      </trans-unit>
+      <trans-unit id="header.label">
+        <source>Überschrift</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

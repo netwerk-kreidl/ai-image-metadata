@@ -1,0 +1,10 @@
+# Copyright list content element: collect all copyright notices of
+# referenced images via the "copyright-list" data processor.
+tt_content.netwerk_copyrightlist {
+    dataProcessing {
+        30 = copyright-list
+        30 {
+            as = copyrights
+        }
+    }
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2026-09-10T00:00:00Z" product-name="ai_image_metadata">
+		<header/>
+		<body>
+			<trans-unit id="sys_file_metadata.copyright">
+				<source>Copyright</source>
+			</trans-unit>
+			<trans-unit id="sys_file_metadata.copyright.description">
+				<source>Image rights holder, e.g. the photographer. Shown in the copyright listing on the imprint page.</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
