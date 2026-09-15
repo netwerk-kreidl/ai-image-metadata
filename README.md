@@ -1,6 +1,7 @@
 ### Installation
 
 ddev composer config repositories.ai-image-metadata vcs git@github.com:netwerk-kreidl/ai-image-metadata.git
+
 ddev composer require netwerk-kreidl/ai-image-metadata:^1.0
 
 ## Configuration
