@@ -19,12 +19,6 @@ AI_IMAGE_METADATA_API_KEY=
 
 2. In die `.gitignore` aufnehmen
 
-3. den getenv-Block in config/system/additional.php eintragen (ganz unten):
-   // API-Key für EXT:ai_image_metadata aus der .env übernehmen
-  $aiApiKey = getenv('AI_IMAGE_METADATA_API_KEY');
-  if ($aiApiKey !== false && $aiApiKey !== '') {
-      $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['ai_image_metadata']['apiKey'] = $aiApiKey;
-  }
-4. das Site Set netwerk/ai-image-metadata als Abhängigkeit im Sitepackage eintragen (für das Bildrechte-Element)
-5. Das Modell auswählen: Backend → *Admin Tools → Settings → Extension Configuration → AI Image Metadata*:
+3. das Site Set netwerk/ai-image-metadata als Abhängigkeit im Sitepackage eintragen (für das Bildrechte-Element)
+4. Das Modell auswählen: Backend → *Admin Tools → Settings → Extension Configuration → AI Image Metadata*:
 Provider `Claude`, Modell z.B. `claude-sonnet-5`. Das Feld *API-Key* leer lassen.
