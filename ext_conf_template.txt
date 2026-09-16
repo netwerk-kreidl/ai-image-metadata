@@ -1,7 +1,7 @@
 # cat=basic; type=options[Claude=anthropic,ChatGPT=openai]; label=KI-Anbieter
 provider = anthropic
 
-# cat=basic; type=string; label=API-Key
+# cat=basic; type=string; label=API-Key: Empfohlen: stattdessen AI_IMAGE_METADATA_API_KEY in der .env setzen (hat Vorrang)
 apiKey =
 
 # cat=basic; type=string; label=Modell

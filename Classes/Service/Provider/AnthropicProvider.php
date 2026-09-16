@@ -18,7 +18,9 @@ final readonly class AnthropicProvider implements AiProviderInterface
 
         public function describeImage(string $imageData, string $mimeType, string $fileName): array
     {
-        $apiKey = (string)$this->extensionConfiguration->get('ai_image_metadata', 'apiKey');
+                // Umgebungsvariable hat Vorrang, sonst der Wert aus der Extension-Konfiguration
+        $apiKey = (string)(getenv('AI_IMAGE_METADATA_API_KEY')
+            ?: $this->extensionConfiguration->get('ai_image_metadata', 'apiKey'));
         $model = (string)$this->extensionConfiguration->get('ai_image_metadata', 'model');
 
         // 1. Anfrage zusammenbauen
