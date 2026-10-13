@@ -2,7 +2,7 @@
 provider = anthropic
 
 # cat=basic; type=string; label=API-Key: Empfohlen: stattdessen AI_IMAGE_METADATA_API_KEY in der .env setzen (hat Vorrang)
-apiKey =
+apiKey = 
 
 # cat=basic; type=string; label=Modell
 model = claude-sonnet-5

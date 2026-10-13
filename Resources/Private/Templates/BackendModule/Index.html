@@ -4,7 +4,13 @@
 <f:layout name="Module" />
 
 <f:section name="Content">
-    <h1>AI Image Metadata</h1>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1 class="mb-0">AI Image Metadata</h1>
+        <a class="btn btn-default"
+            href="{be:uri.editRecord(table: 'tx_aiimagemetadata_settings', uid: settingsUid)}">
+            Prompt-Einstellungen
+        </a>
+    </div>
 
     <f:if condition="{successMessage}">
         <div class="alert alert-success">

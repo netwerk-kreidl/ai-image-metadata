@@ -11,6 +11,7 @@ use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
 use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
 use TYPO3\CMS\Core\Resource\Index\MetaDataRepository;
+use Netwerk\AiImageMetadata\Domain\Repository\SettingsRepository;
 use Netwerk\AiImageMetadata\Service\ImageMetadataGeneratorService;
 
 #[AsController]
@@ -22,6 +23,7 @@ final readonly class BackendModuleController
         private ResourceFactory $resourceFactory,
         private MetaDataRepository $metaDataRepository,
         private ImageMetadataGeneratorService $imageMetadataGeneratorService,
+        private SettingsRepository $settingsRepository,
     ) {}
 
     public function handleRequest(ServerRequestInterface $request): ResponseInterface
@@ -145,6 +147,7 @@ final readonly class BackendModuleController
             : 0;
 
         $moduleTemplate->assignMultiple([
+            'settingsUid' => $this->settingsRepository->ensureRecordUid(),
             'id' => $id,
             'folder' => $folder,
             'images' => $images,

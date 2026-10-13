@@ -14,6 +14,7 @@ final readonly class ImageMetadataGeneratorService
 {
     public function __construct(
         private AnthropicProvider $provider,
+        private PromptBuilder $promptBuilder,
         private Context $context,
     ) {}
 
@@ -35,6 +36,7 @@ final readonly class ImageMetadataGeneratorService
             $preview->getContents(),
             $preview->getMimeType(),
             $file->getName(),
+            $this->promptBuilder->buildSystemPrompt(),
         );
 
         // Agentur-Konvention: Copyright wird mit ©-Zeichen an den Titel angehängt

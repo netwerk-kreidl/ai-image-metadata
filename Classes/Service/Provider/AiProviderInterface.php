@@ -10,8 +10,9 @@ interface AiProviderInterface
      * @param string $imageData Die rohen Bilddaten (Dateiinhalt)
      * @param string $mimeType z.B. "image/jpeg"
      * @param string $fileName Originaler Dateiname als Kontext, z.B. "zillertal-sommer-wandern.jpg"
+     * @param string $systemPrompt Fertiger System-Prompt inkl. Redaktions-Kontext (siehe PromptBuilder)
      * @return array{title: string, alternative: string, copyright: string}
      */
-    public function describeImage(string $imageData, string $mimeType, string $fileName): array;
+    public function describeImage(string $imageData, string $mimeType, string $fileName, string $systemPrompt): array;
 
 }

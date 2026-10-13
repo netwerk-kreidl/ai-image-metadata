@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0">
+	<file source-language="de" datatype="plaintext" original="messages" date="2026-10-13T00:00:00Z" product-name="ai_image_metadata">
+		<header/>
+		<body>
+			<trans-unit id="table">
+				<source>Prompt-Einstellungen</source>
+			</trans-unit>
+			<trans-unit id="tab.business">
+				<source>Betrieb</source>
+			</trans-unit>
+			<trans-unit id="tab.style">
+				<source>Stil &amp; Länge</source>
+			</trans-unit>
+			<trans-unit id="tab.vocabulary">
+				<source>Wortwahl &amp; Beispiele</source>
+			</trans-unit>
+			<trans-unit id="business_name">
+				<source>Name des Betriebs</source>
+			</trans-unit>
+			<trans-unit id="business_name.description">
+				<source>z. B. „Hotel Alpenblick“</source>
+			</trans-unit>
+			<trans-unit id="business_type">
+				<source>Art des Betriebs</source>
+			</trans-unit>
+			<trans-unit id="business_type.description">
+				<source>z. B. Familienhotel, Bergbahn, Restaurant</source>
+			</trans-unit>
+			<trans-unit id="location">
+				<source>Standort / Region</source>
+			</trans-unit>
+			<trans-unit id="location.description">
+				<source>Wird nur verwendet, wenn es zum Bild passt.</source>
+			</trans-unit>
+			<trans-unit id="target_group">
+				<source>Zielgruppe</source>
+			</trans-unit>
+			<trans-unit id="target_group.description">
+				<source>z. B. Familien, Wanderer, Genießer</source>
+			</trans-unit>
+			<trans-unit id="tone">
+				<source>Tonalität</source>
+			</trans-unit>
+			<trans-unit id="tone.neutral">
+				<source>Sachlich-neutral</source>
+			</trans-unit>
+			<trans-unit id="tone.warm">
+				<source>Herzlich &amp; einladend</source>
+			</trans-unit>
+			<trans-unit id="tone.upscale">
+				<source>Gehoben &amp; elegant</source>
+			</trans-unit>
+			<trans-unit id="tone.casual">
+				<source>Locker &amp; modern</source>
+			</trans-unit>
+			<trans-unit id="output_language">
+				<source>Sprache der Bildbeschreibungen</source>
+			</trans-unit>
+			<trans-unit id="output_language.description">
+				<source>Die Prompt-Einstellungen selbst bleiben deutsch.</source>
+			</trans-unit>
+			<trans-unit id="alt_max">
+				<source>Max. Länge Alt-Text (Zeichen)</source>
+			</trans-unit>
+			<trans-unit id="alt_max.description">
+				<source>Empfohlen: 125</source>
+			</trans-unit>
+			<trans-unit id="title_max">
+				<source>Max. Länge Titel (Zeichen)</source>
+			</trans-unit>
+			<trans-unit id="title_max.description">
+				<source>Empfohlen: 60</source>
+			</trans-unit>
+			<trans-unit id="keywords">
+				<source>Wichtige Begriffe</source>
+			</trans-unit>
+			<trans-unit id="keywords.description">
+				<source>Ein Begriff pro Zeile. Kommen vor, wenn sie zum Bild passen.</source>
+			</trans-unit>
+			<trans-unit id="forbidden_words">
+				<source>Verbotene Wörter</source>
+			</trans-unit>
+			<trans-unit id="forbidden_words.description">
+				<source>Ein Wort pro Zeile, z. B. „traumhaft“.</source>
+			</trans-unit>
+			<trans-unit id="examples">
+				<source>Beispiele guter Alt-Texte</source>
+			</trans-unit>
+			<trans-unit id="examples.description">
+				<source>Ein Beispiel pro Zeile. Die KI orientiert sich an Stil und Länge.</source>
+			</trans-unit>
+			<trans-unit id="extra_instructions">
+				<source>Zusätzliche Anweisungen</source>
+			</trans-unit>
+			<trans-unit id="extra_instructions.description">
+				<source>Freitext, z. B. „Gäste nie beim Namen nennen“.</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
