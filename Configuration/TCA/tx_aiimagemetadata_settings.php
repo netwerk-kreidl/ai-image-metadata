@@ -14,7 +14,9 @@ return [
         'security' => [
             'ignoreRootLevelRestriction' => true,
         ],
-        'iconIdentifier' => 'module-file',
+        'typeicon_classes' => [
+            'default' => 'actions-cog',
+        ],
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
     ],
