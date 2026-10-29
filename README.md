@@ -14,7 +14,7 @@ ddev composer require netwerk/ai-image-metadata:^1.0
 ddev typo3 extension:setup --extension=ai_image_metadata
 
 ## Configuration
-1. Datei `.env` im Projekt-Root anlegen (am Server per SSH/SFTP) den Key ergänzen:
+1. Datei `.env` im Projekt-Root anlegen (und am Server per SSH/SFTP) den Key ergänzen:
 AI_IMAGE_METADATA_API_KEY=
 
 2. In die `.gitignore` aufnehmen
